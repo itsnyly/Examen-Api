@@ -1,7 +1,7 @@
 <h3>Mida Imatge: </h3>
 <input type="text" id="midaImatge">
 <br>
-<h3 id="numPagines">Pàgina</h3>
+<h3 id="numPagines">Pàgina {{currentPage}} de {{lastPage}}</h3>
 <table>
     <thead>
       <tr>
@@ -15,9 +15,42 @@
       <tr *ngFor="let quadre of allQuadres">
         <td>{{quadre.title}}</td>
         <td>{{quadre.id}}</td>
+        <td></td>
+        <td><button (click)="visualitzarImatge(quadre.image_id)">Veure</button></td>
       </tr>
     </tbody>
   </table>
   <h3>Documents per plana:</h3> <input type="number" id="documentsPlana">
   <h3>Plana:</h3> <input type="number" id="numPlana">
   <button (click)="AccedirPagina()">Accedir</button>
+  <button (click)="firstPage()">Primera Pàgina</button>
+  <button (click)="oneLessPage()">Pàgina Anterior</button>
+  <button (click)="oneMorePage()">Següent Pàgina</button>
+  <button (click)="lastPageF()">Última Pàgina</button>
+<br>
+<br>
+<table>
+    <thead>
+      <tr>
+        <th>Títol</th>
+        <th>Imatge</th>
+        <th>Artists</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>Death</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr *ngFor="let quadre of quadresSecond">
+        <td>{{quadre.title}}</td>
+        <td>{{quadre.image_id}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>

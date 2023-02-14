@@ -9,9 +9,7 @@ import { Observable } from "rxjs";
 export class artworks {
     constructor(private http: HttpClient) { };
 
-    getFact():Observable<any> {
-        return this.http.get("https://catfact.ninja/fact");
-    };
+ 
 
     getAllArtWorks():Observable<any> {
         return this.http.get("https://api.artic.edu/api/v1/artworks");
@@ -21,9 +19,16 @@ export class artworks {
         return this.http.get(`https://api.artic.edu/api/v1/artworks?page=${page}&limit=${limit}`);
     };
 
-    getNthFacts(limit: number):Observable<any> {
-        return this.http.get("https://catfact.ninja/facts?limit="+limit);
-    };
+ 
+
+    getImage(url: string, id: string):Observable<any>{
+        return this.http.get(`https://www.artic.edu/iiif/2/${id}/full/843,/0/default.jpg`);
+    }
+
+    getArtist(id:number){
+        console.log(id);
+        return this.http.get(`https://api.artic.edu/api/v1/artists/${id}`);
+    }
 
     
 

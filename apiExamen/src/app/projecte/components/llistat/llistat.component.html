@@ -1,0 +1,23 @@
+<h3>Mida Imatge: </h3>
+<input type="text" id="midaImatge">
+<br>
+<h3 id="numPagines">Pàgina</h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom Usuari</th>
+        <th>Categoria</th>
+        <th>Unitat</th>
+        <th>Botó</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let treballador of totsTreballadors | filter:searchText">
+        <td>{{treballador.nom_usuari_treballador}}</td>
+        <td>{{treballador.nom_categoria_treballador}}</td>
+        <td>{{treballador.nom_unitat_treballador}}</td>
+        <td><button type="button" class="btn btn-primary"
+            (click)="afegirTreballadorGuardia(treballador.nom_usuari_treballador)">Afegir</button></td>
+      </tr>
+    </tbody>
+  </table>

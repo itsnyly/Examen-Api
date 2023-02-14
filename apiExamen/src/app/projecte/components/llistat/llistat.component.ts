@@ -63,10 +63,10 @@ export class LlistatComponent implements OnInit {
 
   getArtista(id: number){
     this.httpClient.getArtist(id).subscribe(
-      data => {
+      response => {
         console.log("dins subscribe");
-        console.log(data);  
-        return data; 
+        console.log(response);  
+        return response.data; 
       }
     );
   }
@@ -75,12 +75,12 @@ export class LlistatComponent implements OnInit {
     console.log(this.quadresSecond);
     this.quadresSecond.forEach(quadre => {
       let artista = this.getArtista(quadre.artist_id);
-      console.log(artista)
+      //this.artistesQuadresSecond.push({titol: quadre.title, image_id: quadre.image_id, title: artist,birth_date: number, death_date: number })
     });
   }
 
-  getImatge(url: string, id:string){
-    this.httpClient.getImage(url,id).subscribe(
+  getImatge(url: string, id:string, mida: number){
+    this.httpClient.getImage(url,id, mida).subscribe(
       data => {
         console.log("dins subscribe");
         console.log(data);
@@ -121,7 +121,10 @@ export class LlistatComponent implements OnInit {
   }
 
   visualitzarImatge(id: string){
-    this.getImatge(this.iiif_url, id);
+    const mida = (
+      document.getElementById('midaImatge') as HTMLSelectElement
+    ).value;
+    this.getImatge(this.iiif_url, id, Number(mida));
   }
 
 }

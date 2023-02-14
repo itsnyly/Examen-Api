@@ -21,11 +21,11 @@ export class artworks {
 
  
 
-    getImage(url: string, id: string):Observable<any>{
-        return this.http.get(`https://www.artic.edu/iiif/2/${id}/full/843,/0/default.jpg`);
+    getImage(url: string, id: string,mida: number):Observable<any>{
+        return this.http.get(`https://www.artic.edu/iiif/2/${id}/full/${mida},/0/default.jpg`);
     }
 
-    getArtist(id:number){
+    getArtist(id:number):Observable<any>{
         console.log(id);
         return this.http.get(`https://api.artic.edu/api/v1/artists/${id}`);
     }

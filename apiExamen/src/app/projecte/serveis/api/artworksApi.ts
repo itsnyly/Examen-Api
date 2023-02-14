@@ -17,6 +17,10 @@ export class artworks {
         return this.http.get("https://api.artic.edu/api/v1/artworks");
     };
 
+    getArtWorksByPage(page: number, limit:number):Observable<any> {
+        return this.http.get(`https://api.artic.edu/api/v1/artworks?page=${page}&limit=${limit}`);
+    };
+
     getNthFacts(limit: number):Observable<any> {
         return this.http.get("https://catfact.ninja/facts?limit="+limit);
     };

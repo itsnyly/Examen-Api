@@ -2,22 +2,22 @@
 <input type="text" id="midaImatge">
 <br>
 <h3 id="numPagines">Pàgina</h3>
-<table class="table table-striped">
+<table>
     <thead>
       <tr>
-        <th>Nom Usuari</th>
-        <th>Categoria</th>
-        <th>Unitat</th>
-        <th>Botó</th>
+        <th>Títol</th>
+        <th>Id</th>
+        <th>Imatge</th>
+        <th>Visualitzar</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let treballador of totsTreballadors | filter:searchText">
-        <td>{{treballador.nom_usuari_treballador}}</td>
-        <td>{{treballador.nom_categoria_treballador}}</td>
-        <td>{{treballador.nom_unitat_treballador}}</td>
-        <td><button type="button" class="btn btn-primary"
-            (click)="afegirTreballadorGuardia(treballador.nom_usuari_treballador)">Afegir</button></td>
+      <tr *ngFor="let quadre of allQuadres">
+        <td>{{quadre.title}}</td>
+        <td>{{quadre.id}}</td>
       </tr>
     </tbody>
   </table>
+  <h3>Documents per plana:</h3> <input type="number" id="documentsPlana">
+  <h3>Plana:</h3> <input type="number" id="numPlana">
+  <button (click)="AccedirPagina()">Accedir</button>
